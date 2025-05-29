@@ -121,7 +121,6 @@ else:
     fake_news_df['emotions'] = fake_news_df['cleaned_text'].apply(lambda x: count_emotions(x, emotion_lexicon))
     true_news_df['emotions'] = true_news_df['cleaned_text'].apply(lambda x: count_emotions(x, emotion_lexicon))
 
-    # 过滤情绪总和为 0 的文本（即完全没有情绪词的）
     fake_news_df = fake_news_df[fake_news_df['emotions'].apply(lambda x: sum(x.values()) > 0)]
     true_news_df = true_news_df[true_news_df['emotions'].apply(lambda x: sum(x.values()) > 0)]
 
